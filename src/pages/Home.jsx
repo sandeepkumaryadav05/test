@@ -103,7 +103,7 @@ function Categories({ categories }) {
 /* ---------------- featured ---------------- */
 function Featured({ products }) {
   return (
-    <section className="bg-white/60 py-16 sm:py-20 lg:py-24">
+    <section id="products" className="scroll-mt-28 bg-white/60 py-16 sm:py-20 lg:py-24">
       <div className="container-x">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading
@@ -147,9 +147,18 @@ function OfferBanner() {
         <p className="relative mx-auto mt-4 max-w-md text-sm text-cream-50/75">
           Use coupon <span className="rounded-md border border-dashed border-gold px-2 py-0.5 font-mono font-bold tracking-[0.25em] text-gold-light">FRESH20</span> on your first order above ₹299.
         </p>
-        <Link to="/shop" className="btn-gold relative mt-7">
+        <button
+          type="button"
+          onClick={() =>
+            document.getElementById('products')?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            })
+          }
+          className="btn-gold relative mt-7"
+        >
           Shop Now <ArrowRight size={15} />
-        </Link>
+        </button>
       </motion.div>
     </section>
   )
